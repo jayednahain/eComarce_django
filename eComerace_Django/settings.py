@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #pratice app
+    'test_form_handle',
+    'test_authentication'
 ]
 
 MIDDLEWARE = [

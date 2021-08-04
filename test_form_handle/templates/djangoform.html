@@ -1,0 +1,23 @@
+{% extends 'test_base.html' %}
+
+
+
+{% block head %}
+    <h1>hellow</h1>
+
+{% endblock head %}
+
+
+
+
+{% block body %}
+    <h1>Django Form</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button class="btn btn-dark">submit</button>
+
+    </form>
+
+{% endblock body %}
