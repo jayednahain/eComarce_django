@@ -1,0 +1,30 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+
+
+{% block head %}
+
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+    <img src="">
+    {% if object.product_image %}
+        <img src="{{ object.product_image.url }}" class="view-image-size"><br>
+        {{ object.product_image.url }}
+    {% else %}
+        <h3>this product has no image</h3>
+    {% endif %}
+    <h1>{{ object.title }}</h1><br>
+    <h3>{{ object.description }}</h3>
+
+
+
+
+{% endblock %}

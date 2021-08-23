@@ -53,7 +53,7 @@ def html_form_data_manual(request):
 #       print(form.cleaned_data)
 #    return render(request,'djangoform.html',{'form':form})
 
-"""using custom field error """
+"""using custom field error """ # error used in forms.py file
 def django_form(request):
    form = ContactForm(request.POST or None)
    full_name = request.POST.get('full_name')

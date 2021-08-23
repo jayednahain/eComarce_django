@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm
-from django.contrib.auth import authenticate,login
+from .forms import LoginForm,RegisterForm
+from django.contrib.auth import authenticate, login, get_user_model
+
 
 # Create your views here.
 
@@ -39,8 +40,26 @@ def login_page(request):
 
    return render(request,'auth/login.html',context)
 
+
+
+User = get_user_model()
+#get user model will help us for creating new user
 def register_page(request):
-   form = LoginForm(request.POST or None)
+   form = RegisterForm(request.POST or None)
+
+   context = {
+      'form': form
+   }
+
+   #here we just saveing the data 
+
    if form.is_valid():
       print(form.cleaned_data)
-   return render(request,'auth/register.html')
+
+      username = form.cleaned_data.get("username")
+      email    = form.cleaned_data.get("email")
+      password = form.cleaned_data.get("password")
+
+      new_user= User.objects.create_user(username,email,password)
+      print(new_user)
+   return render(request,'auth/register.html',context)

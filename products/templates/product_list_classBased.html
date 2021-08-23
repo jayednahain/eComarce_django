@@ -1,0 +1,31 @@
+{% extends 'test_base.html' %}
+
+
+
+
+{% block head %}
+
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+    <hr>
+    <h1>Class based view</h1>
+    <hr>
+    paginator: {{ paginator }} <br>
+    is_paginated: {{ is_paginated }} <br>
+    <hr>
+    {% for data in object_list %}
+        
+        <h1><a href="{% url 'detail_view_classed_link' data.id %}">{{ data }}</a></h1>
+{#        <img src="{{  }}">#}
+
+    {% endfor %}
+    {{ object_list }}
+
+{% endblock %}
