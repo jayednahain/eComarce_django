@@ -31,6 +31,8 @@ class ContactForm(forms.Form):
 
    #custom error for email
 
+   #error
+
    def clean_email(self):
       email = self.cleaned_data.get('email')
       print("custom validation for email RUN !!!")

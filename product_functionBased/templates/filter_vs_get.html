@@ -1,0 +1,45 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+
+
+{% block head %}
+
+
+{% endblock head %}
+
+
+
+
+
+{% block body %}
+    <br>
+    <h1>function based detail view</h1>
+    <hr>
+    <h1>instance data</h1>
+    {% if object_instance %}
+        {% if object_instance.product_image %}
+            <img src="{{ object_instance.product_image.url }}" class="view-image-size">
+        {% else %}
+            <img src="{% static 'image/no_image.jpg' %}" class="view-image-size">
+        {% endif %}
+        <h1>{{ object_instance.title }}</h1><br>
+        <h3>{{ object_instance.description }}</h3>
+    {% else %}
+        <h1>instance is empty</h1>
+    {% endif %}
+
+
+    <hr>
+    <h1>query data</h1>
+    {% if object_qs %}
+        {% for data in object_qs %}
+            {{ data.title }}
+        {% endfor %}
+    {% else %}
+        <h1>query set data is empty</h1>
+    {% endif %}
+
+
+{% endblock body %}
