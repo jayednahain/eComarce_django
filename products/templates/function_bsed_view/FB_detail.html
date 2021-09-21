@@ -1,0 +1,40 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+
+
+{% block head %}
+
+
+{% endblock head %}
+
+{% block body %}
+    {% if error %}
+        <h1>No product Found</h1>
+    {% else %}
+        {% if object.product_image %}
+            <img class="view-image-size" src="{{ object.product_image.url }}" class="view-image-size">
+        {% else %}
+            <h1>this product has no image</h1>
+        {% endif %}
+
+        <h1> Name: {{ object.title }}</h1>
+        <h2> Description : {{ object.description }} </h2>
+        <h2> Product id : {{ object.id }} </h2>
+        <h2> Featured: {{ object.featured }} </h2>
+    {% endif %}
+{#    <h1>Function Based based Detail view</h1>#}
+{#    {% if object.product_image %}#}
+{#        <img src="{{ object.product_image.url }}" class="view-image-size">#}
+{#    {% else %}#}
+{#        <h1>this product has no image</h1>#}
+{#    {% endif %}#}
+{##}
+{#    <h1> Name: {{ object.title }}</h1>#}
+{#    <h2> Description : {{ object.description }} </h2>#}
+{#    <h2> Product id : {{ object.id }} </h2>#}
+{#    <h2> Featured: {{ object.featured }} </h2>#}
+
+
+{% endblock body %}

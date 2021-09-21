@@ -1,38 +1,28 @@
 from django.db import models
-import os
-import random
-# Create your models here.
 
-#formating image file name
 #9
 #image path
-def get_filename(filepath):
-   base_name      = os.path.basename(filepath)
-   name,extension = os.path.splitext(base_name)
-   return name,extension
+from products.media_path_converter import upload_image_path
+from products.manager import ProductManager
 
 
-def upload_image_path(instance,filename):
 
-   new_filename   = random.randint(1,34545465)
-   name,extension = get_filename(filename)
-   final_filename = f'{new_filename}{extension}'.format(new_filename=new_filename,extension=extension)
-   return f'Porduct_image/{new_filename}/{final_filename}'.format(
-      new_filename=new_filename,
-      final_filename=final_filename
-   )
+#11 7:45
+#creating custmon queryset model!
+
+class ProductQuerySet(models.query.QuerySet):
+   def featured_new(self):
+      return self.filter(featured=True)
+
+
+
+
 #Manager
 #creating manager for Product
 #this manager will retrive data by id
 #10
-class ProductManager(models.Manager):
-   def get_by_id(self,id): #create method
-      #return self.get_queryset(id=id)
-      #3:28
-      qs = self.get_queryset().filter(id=id) #get_queryset() built in method !
-      if qs.count()==1: # it must return one value
-         return qs.first()
-      return None
+
+
 
 
 class Porduct(models.Model):
@@ -46,6 +36,10 @@ class Porduct(models.Model):
 
    #11
    featured       = models.BooleanField(default=False)
+
+   #12
+   active         = models.BooleanField(default=True)
+   slug           = models.SlugField(blank=True,unique=True)
 
 
    def __str__(self):

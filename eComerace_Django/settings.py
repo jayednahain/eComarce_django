@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'products',
-    'product_classBased',
-    'product_functionBased',
 
     #pratice app
     'test_form_handle',

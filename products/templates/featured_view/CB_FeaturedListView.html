@@ -1,0 +1,30 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+
+
+{% block head %}
+
+
+{% endblock head %}
+
+{% block body %}
+    <h1>Featured Product</h1>
+
+    <h1>Classa Based  List view</h1>
+
+    {% for data in object_list %}
+        <h3><a href="{% url 'CB_featured_deatil' data.pk %}">{{ data.title }}</a></h3>
+    {% endfor %}
+    <hr>
+    <h1>context Property</h1>
+    <hr>
+    {{ paginator }}<br>
+    {{ page_obj }}<br>
+    {{ is_paginated }}<br>
+    {{ object_list }}<br>
+    {{ porduct_list }}<br>
+    {{ view }}<br>
+
+{% endblock body %}

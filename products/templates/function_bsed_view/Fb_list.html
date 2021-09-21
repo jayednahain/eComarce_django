@@ -1,0 +1,20 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+
+
+{% block head %}
+
+
+{% endblock head %}
+
+{% block body %}
+
+    <h1>Function based List view</h1>
+{#    {{ object_list }}#}
+    {% for data in object_list %}
+        <h3><a href="{% url 'FB_detail_link' data.pk %}">{{ data.title }}</a></h3>
+    {% endfor %}
+
+{% endblock body %}
