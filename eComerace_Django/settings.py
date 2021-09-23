@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'products',
+    'Authentication',
+    'Search_engine',
 
     #pratice app
-    'test_form_handle',
-    'test_authentication',
-    'test_filter_data'
+    'test_form_handle'
 ]
 
 MIDDLEWARE = [

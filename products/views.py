@@ -2,10 +2,17 @@ from django.shortcuts import render,get_object_or_404
 from django.http import Http404
 
 from .models import Porduct
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView,DetailView,TemplateView
 from products.models import Porduct
 
 # Create your views here.
+
+
+"""only testing boostrap views !"""
+class templateView(TemplateView):
+   template_name = 'Bootstrap/Boostrap_base.html'
+
+
 
 
 
@@ -77,7 +84,8 @@ class CB_FeaturedDetailView(DetailView):
 
 """################# slug_field link use###########################"""
 
-
+#12
+#detail with slug link
 class Slug_productDetailView(DetailView):
    template_name = 'slug_CB_detail_view/CB_slug_detailView.html'
    queryset = Porduct.objects.all()

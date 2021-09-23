@@ -4,28 +4,26 @@
 
 
 
-
-{% block head %}
-
-
-{% endblock head %}
-
-{% block body %}
-    <h1>Slug View Product</h1>
-    <h1>Class Based based Detail view</h1>
-
-
-
-    {% if object.product_image %}
-        <img src="{{ object.product_image.url }}" class="view-image-size">
-    {% else %}
-        <h1>this product has no image</h1>
-    {% endif %}
-    <h1> Name: {{ object.title }}</h1>
-    <h2> Description : {{ object.description }} </h2>
-    <h2> Product id : {{ object.id }} </h2>
-    <h2> Featured: {{ object.featured }} </h2>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if object.product_image %}
+                    <img src="{{ object.product_image.url }}" class="view-image-size">
+                {% else %}
+                    <h1>this product has no image</h1>
+                {% endif %}
+                <h1> Name: {{ object.title }}</h1>
+                {{ object.date }}
+                <h2> Description : {{ object.description }} </h2>
+                <h2> Product id : {{ object.id }} </h2>
+                <h2> Featured: {{ object.featured }} </h2>
+            </div>
+        </div>
+    </div>
 
 
 
-{% endblock body %}
+
+
+{% endblock content %}

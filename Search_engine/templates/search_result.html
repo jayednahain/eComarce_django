@@ -1,13 +1,35 @@
 {% extends 'test_base.html' %}
 {% load static %}
+{% with request.GET.q as query_data %}
+
+{% endwith %}
 
 
 
 
 {% block content %}
 
-
     <div class="container">
+        <div class="row mb-3">
+            <div class="col-12 py-4">
+                {% if query_data  %}
+
+                    <div class="alert alert-warning" role="alert">
+                        <h2>search For {{ query_data }}</h2>
+                    </div>
+                {% else %}
+                    <div class="col-12 col-md-6 mx-auto">
+                        <input class="form-control" type="text" placeholder="Search">
+                    </div>
+                {% endif %}
+                <br>
+                <div class="col-12">
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+
         <div class="row">
             {% for data in object_list %}
                 <div class="col">

@@ -1,0 +1,30 @@
+{% extends 'test_base.html' %}
+
+
+
+{% block title %}
+
+{% endblock title %}
+
+
+{% block content %}
+
+
+    <div class="container">
+    <br>
+    <h1 class="text-center alert alert-danger">Register Form</h1>
+        <div class="row">
+            <div class="col">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <button class="btn btn-dark">submit</button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'test_base.html' %}
+{% load static %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+
+
+
+{% block body %}
+{#    <img src="{% static 'test_image/karbir.jpg' %}">#}
+
+    <form method="POST">
+    {% csrf_token %}
+        <input type="text" class="form-control" placeholder="Type-name" name="name">
+        <input type="email" class="form-control" placeholder="Email" name="email">
+        <input type="password" class="form-control" placeholder="password" name="password">
+        <button value="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+{% endblock body %}
