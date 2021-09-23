@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'products',
     'Authentication',
     'Search_engine',
+    'data_tags',
 
     #pratice app
     'test_form_handle'

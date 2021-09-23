@@ -1,9 +1,27 @@
 from django.db import models
+from django.db.models import Q
 
 
 class ProductQuerySet(models.query.QuerySet):
+   def active(self):
+      return self.filter(active=True)
+
    def featured(self):
       return self.filter(featured=True,active=True)
+
+
+   #search
+   #custom query
+   def search_data(self,query):
+      query_set = (
+             Q(title__icontains=query) |
+             Q(description__icontains=query) |
+             Q(price__icontains=query)
+      )
+
+
+      return self.filter(query_set).distinct()
+
 
 class ProductManager(models.Manager):
 
@@ -25,3 +43,8 @@ class ProductManager(models.Manager):
    def featured(self):
       return self.get_queryset().featured() #return those value where featured=True
 
+
+   #search
+   #adding custom search_data() to manader
+   def search_data(self,query):
+      return self.get_queryset().search_data(query)
