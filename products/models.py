@@ -43,10 +43,12 @@ class ProductQuerySet(models.query.QuerySet):
    #search
    #custom query
    def search_data(self,query):
+
       query_set = (
              Q(title__icontains=query) |
              Q(description__icontains=query) |
              Q(price__icontains=query) |
+               #reverce
              Q(tag__title__icontains=query) # this is a revarce query
 
       )
