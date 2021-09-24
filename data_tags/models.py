@@ -16,6 +16,10 @@ class Tag(models.Model):
    product     = models.ManyToManyField(Porduct,blank=True)
 
 
+   def __str__(self):
+      return self.title
+
+
 
 def tag_pre_save_reciver(sender,instance,*args,**kwargs):
    if not instance.slug:
